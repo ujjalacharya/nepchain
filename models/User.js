@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// (citizenshipno, firstname, middlename, lastname, gender, dob, grandfathers name, fathers name, mothers name, street, ward, municipality, district, country)
-
 const UserSchema = new Schema({
     citizenshipno: {
         type: String,
@@ -14,7 +12,7 @@ const UserSchema = new Schema({
     },
     gender:{
         type: String,
-        enum: ["male", "female"]
+        enum: ["male", "female", "other"]
     },
     password: {
         type: String,
@@ -36,8 +34,8 @@ const UserSchema = new Schema({
         type: Date,
         required: true
     },
-    bloodgroup: {
-        type: String
+    isAdmin:{
+        default: false
     }
 })
 

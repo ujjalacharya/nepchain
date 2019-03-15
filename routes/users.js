@@ -38,10 +38,12 @@ router.post('/register', (req, res) => {
         res.render('users/register', {
             errors: errors,
             name: req.body.name,
+            citizenshipno: req.body.citizenshipno,
             password: req.body.password,
             password2: req.body.password2,
             email: req.body.email,
             phone: req.body.phone,
+            email: req.body.email,
             address: req.body.address
         })
     } else {
@@ -57,7 +59,10 @@ router.post('/register', (req, res) => {
                         phone: req.body.phone,
                         address: req.body.address,
                         dob: req.body.dob,
-                        bloodgroup: req.body.bloodgroup
+                        gender: req.body.gender,
+                        citizenshipno: req.body.citizenshipno,
+                    
+                       
                     }
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(newuser.password, salt, (err, hash) => {

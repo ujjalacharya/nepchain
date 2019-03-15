@@ -7,11 +7,16 @@ const keys      = require('./config/keys');
 const passport  = require('passport');
 const bodyParser= require('body-parser');
 const session = require('express-session');
+const path = require('path');
 
 //Connect to the database
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
         .then(()=>{console.log('Connected to the database')})
         .catch((err)=> console.log(err))
+
+//Middleware for static folder
+app.use(express.static(path.join(__dirname, "public")));
+
 
 //Require passport
 require('./config/passport')(passport);
