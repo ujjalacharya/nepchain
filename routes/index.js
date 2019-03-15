@@ -1,7 +1,12 @@
-const router = require('express').Router();
+const Router = require('express').Router();
 
-router.get('/', (req, res)=>{
-    res.render('index/welcome')
-})
+const homeController = require('../controllers/homeController');
+const {checkAuth} = require('../config/checkAuth');
 
-module.exports = router;
+Router.get('/', homeController.getHomePage)
+
+Router.get('/about', homeController.getAboutPage)
+
+Router.get('/users/apply', checkAuth, homeController.getApplyPage)
+
+module.exports = Router;
