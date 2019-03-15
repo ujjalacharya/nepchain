@@ -69,6 +69,10 @@ const CitizenshipSchema = new Schema({
   type: String,
   required: true
  },
+ approved: {
+  type: Boolean,
+  default: false
+ }
 });
 
 module.exports = Citizenship = mongoose.model("citizenships", CitizenshipSchema);

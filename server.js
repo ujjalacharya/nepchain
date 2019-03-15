@@ -39,6 +39,7 @@ app.use(session({
 //import the routes
 const index = require('./routes/index')
 const users = require('./routes/users')
+const apply = require('./routes/apply')
 
 //Passport middleware
 app.use(passport.initialize())
@@ -51,6 +52,7 @@ app.use(function (req, res, next) {
 
 //Using the routes
 app.use('/', index)
+app.use('/users/apply', apply)
 app.use('/users', users)
 
 app.listen(PORT, ()=>{

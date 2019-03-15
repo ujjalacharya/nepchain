@@ -7,6 +7,4 @@ Router.get('/', homeController.getHomePage)
 
 Router.get('/about', homeController.getAboutPage)
 
-Router.get('/users/apply', checkAuth, homeController.getApplyPage)
-
 module.exports = Router;

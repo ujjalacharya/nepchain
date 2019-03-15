@@ -6,7 +6,3 @@ exports.getHomePage = (req, res)=>{
 exports.getAboutPage = (req, res)=>{
  res.render('index/about')
 }
-
-exports.getApplyPage = (req, res) => {
- res.render('apply/index')
-}
