@@ -7,5 +7,5 @@ exports.getForm = (req, res) =>{
 }
 
 exports.postCitizenship = (req, res) =>{
- 
+ res.json(req.body)
 }
