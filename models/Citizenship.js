@@ -62,7 +62,7 @@ const CitizenshipSchema = new Schema({
  },
  image:{
   type: String,
-  required: true
+  required: false
  },
  approved: {
   type: Boolean,
