@@ -7,11 +7,6 @@ const CitizenshipSchema = new Schema({
   type: String,
   required: true
  },
- 
- applicationID:{
-  type: String,
-  required: true
- },
  firstname:{
   type: String,
   required: true
@@ -26,7 +21,7 @@ const CitizenshipSchema = new Schema({
  },
  gender:{
   type: String,
-  enum: ["male", "female"],
+  enum: ["male", "female", "other"],
   required: true
  },
  dob:{
@@ -76,20 +71,3 @@ const CitizenshipSchema = new Schema({
 });
 
 module.exports = Citizenship = mongoose.model("citizenships", CitizenshipSchema);
-
-// citizenshipno
-// applicationID
-// firstname
-// middlename
-// lastname
-// gender
-// dob
-// grandfathers name
-// fathers name
-// mothers name
-// street
-// ward
-// municipality
-// district
-// country
-// card issuer

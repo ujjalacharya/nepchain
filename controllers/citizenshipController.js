@@ -5,3 +5,7 @@ exports.getApplyPage = (req, res) => {
 exports.getForm = (req, res) =>{
  res.render('apply/citizenship')
 }
+
+exports.postCitizenship = (req, res) =>{
+ 
+}
