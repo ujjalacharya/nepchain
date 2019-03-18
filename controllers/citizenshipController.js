@@ -8,6 +8,7 @@ exports.getForm = (req, res) =>{
 }
 
 exports.postCitizenship = (req, res) =>{
+    console.log(req.file);
     const errors = [];
     if (!req.body.firstname) {
         errors.push({ text: "Empty name" });
