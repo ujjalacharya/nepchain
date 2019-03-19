@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CitizenshipSchema = new Schema({
+user: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
+},
  citizenshipno:{
   type: String,
   required: true

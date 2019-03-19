@@ -85,6 +85,7 @@ exports.postCitizenship = (req, res) =>{
         });
     } else {
         const newCitizen = {
+            user: req.user.id,
             firstname: req.body.firstname,
             middlename: req.body.middlename,
             lastname: req.body.lastname,
