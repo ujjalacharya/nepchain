@@ -8,6 +8,8 @@ const passport  = require('passport');
 const bodyParser= require('body-parser');
 const session = require('express-session');
 const path = require('path');
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'))
 //Connect to the database
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
         .then(()=>{console.log('Connected to the database')})

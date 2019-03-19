@@ -5,3 +5,10 @@ exports.getRequests = (req, res) => {
     })
     
 }
+exports.deleteRequest = (req, res) => {
+    console.log(req.params.id);
+    Citizenship.findByIdAndDelete(req.params.id).then((citizen) => {
+        res.redirect('/user/requests')
+    })
+
+}
