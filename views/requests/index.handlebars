@@ -1,22 +1,39 @@
 <div class="table-responsive">
+    <style>
+        table {
+  counter-reset: rowNumber;
+}
+
+table td {
+  counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+    </style>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">S.No.</th>
                 <th scope="col">Types</th>
-                <th>Status</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <th>Approve</th>
             </tr>
         </thead>
         <tbody>
-            {{#each citizenship}}
+            {{#each data }}
             <tr>
-                <td>1</td>
+                <td></td>
+                {{!-- ya nira td vitra {{type}} garera rakhda ramro huntheo rather than 'citizenship' --}}
                 <td>citizenship</td>
-                <td><input data-id="{{id}}" type="checkbox" {{#if approve}} checked {{/if}}
-                        name="approve"></td>
-                <td><a href="#"><button class="btn btn-primary">Edit</button></a></td>
+                {{#if approved}}
+                <td><span class="btn btn-success">✔</span></td>
+                {{else}}
+                <td><span class="btn btn-info">❌</span></td>
+                {{/if}}
+                <td><a href="/users/requests/edit/{{_id}}"><button class="btn btn-primary">Edit</button></a></td>
                 <td>
                     <form action="/users/requests/{{_id}}?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Delete</button>
