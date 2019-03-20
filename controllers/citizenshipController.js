@@ -104,7 +104,6 @@ exports.postCitizenship = (req, res) =>{
             email: req.body.email,
             image: req.body.image
         }
-
         new Citizenship(newCitizen)
             .save()
             .then(citezen => {
