@@ -1,0 +1,29 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">S.No.</th>
+                <th scope="col">Types</th>
+                <th>Status</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each citizenship}}
+            <tr>
+                <td>1</td>
+                <td>citizenship</td>
+                <td><input data-id="{{id}}" type="checkbox" {{#if approve}} checked {{/if}}
+                        name="approve"></td>
+                <td><a href="#"><button class="btn btn-primary">Edit</button></a></td>
+                <td>
+                    <form action="/users/requests/{{_id}}?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

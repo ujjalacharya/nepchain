@@ -8,7 +8,8 @@ const passport  = require('passport');
 const bodyParser= require('body-parser');
 const session = require('express-session');
 const path = require('path');
-
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'))
 //Connect to the database
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
         .then(()=>{console.log('Connected to the database')})
@@ -40,6 +41,7 @@ app.use(session({
 const index = require('./routes/index')
 const users = require('./routes/users')
 const apply = require('./routes/apply')
+const requests = require('./routes/request')
 
 //Passport middleware
 app.use(passport.initialize())
@@ -53,6 +55,7 @@ app.use(function (req, res, next) {
 //Using the routes
 app.use('/', index)
 app.use('/users/apply', apply)
+app.use('/users/requests', requests)
 app.use('/users', users)
 
 app.listen(PORT, ()=>{
