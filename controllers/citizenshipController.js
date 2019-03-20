@@ -8,14 +8,20 @@ exports.getForm = (req, res) =>{
 }
 
 exports.postCitizenship = (req, res) =>{
-    console.log(req.file);
+    console.log("File",req.file);
     const errors = [];
+
+    if (req.file !== undefined) {
+        req.body.image = "" + req.file.filename;
+      } else {
+        req.body.image = "default.jpg";
+      }
+    
+
     if (!req.body.firstname) {
         errors.push({ text: "Empty name" });
     }
-    if (!req.body.middlename) {
-        errors.push({ text: "Empty middlename" });
-    }
+   
     if (!req.body.lastname) {
         errors.push({ text: "Empty lastname" });
     }

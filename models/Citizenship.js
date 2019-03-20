@@ -17,7 +17,6 @@ user: {
  },
  middlename:{
   type: String,
-  required: true
  },
  lastname:{
   type: String,
