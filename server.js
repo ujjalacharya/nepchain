@@ -23,7 +23,8 @@ app.use(express.static(path.join(__dirname, "public")));
 require('./config/passport')(passport);
 
 //Handlebars middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+const { select} = require('./helper/handlebars-helper');
+app.engine('handlebars', exphbs({ defaultLayout: 'main', helpers: { select}}));
 app.set('view engine', 'handlebars');
 
 //BodyParser middleware

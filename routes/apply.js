@@ -1,7 +1,5 @@
 const Router = require('express').Router();
 const {upload} = require('../config/multer');
-
-
 const citizenshipController = require('../controllers/citizenshipController');
 const {checkAuth} = require('../config/checkAuth');
 

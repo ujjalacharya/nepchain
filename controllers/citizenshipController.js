@@ -8,7 +8,6 @@ exports.getForm = (req, res) =>{
 }
 
 exports.postCitizenship = (req, res) =>{
-    console.log("File",req.file);
     const errors = [];
 
     if (req.file !== undefined) {
@@ -64,9 +63,9 @@ exports.postCitizenship = (req, res) =>{
     if (!req.body.cardissuer) {
         errors.push({ text: "Empty card issuer" });
     }
-    // if (!req.body.image) {
-    //     errors.push({ text: "Empty image" });
-    // }
+    if (!req.body.image) {
+        errors.push({ text: "Empty image" });
+    }
     if (errors.length > 0) {
         console.log(errors);
         res.render("apply/citizenship", {
