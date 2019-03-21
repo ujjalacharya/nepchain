@@ -61,10 +61,12 @@
                   <div class="form-group">
                     <label for="gender">Gender</label>
                     <select class="custom-select" name="gender" required>
+                        {{#select gender}}
                         <option value="">Select</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="other">Other</option>
+                        {{/select}}
                     </select>
                 </div>
               
