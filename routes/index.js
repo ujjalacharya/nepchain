@@ -5,6 +5,11 @@ const request = require("request");
 const homeController = require('../controllers/homeController');
 const {checkAuth} = require('../config/checkAuth');
 
+Router.all('/*',(req,res,next) => {
+  req.app.locals.layout ='main';
+  next();
+});
+
 Router.get('/', homeController.getHomePage)
 
 Router.get('/about', homeController.getAboutPage)
