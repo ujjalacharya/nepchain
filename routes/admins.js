@@ -3,11 +3,10 @@ const Router = require('express').Router();
 const {checkAuthAdmin } = require('../config/checkAuth');
 
 const adminController = require("../controllers/adminController");
+Router.get('/login',adminController.getLoginForm)
+    .post("/login",adminController.loginAdmin)
+Router.get('/dashboard',adminController.dashboard)
 
-Router.route('/login')
-    .get(AdminController.getLoginForm)
-    .post(adminController.loginUser)
-
-Router.get('/logout', userController.logoutUser)
+// Router.get('/logout', adminController.logoutUser)
 
 module.exports = Router;

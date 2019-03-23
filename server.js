@@ -44,6 +44,7 @@ const users = require('./routes/users')
 const admins = require('./routes/admins')
 const apply = require('./routes/apply')
 const requests = require('./routes/request')
+const check = require('./routes/check')
 
 //Passport middleware
 app.use(passport.initialize())
@@ -62,6 +63,7 @@ app.use('/users/apply', apply)
 app.use('/users/requests', requests)
 app.use('/users', users)
 app.use('/admin', admins)
+app.use('/check', check)
 
 app.listen(PORT, ()=>{
     console.log(`App started at port ${PORT}`)

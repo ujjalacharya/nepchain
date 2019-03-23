@@ -18,7 +18,7 @@ const UserSchema = new Schema({
         type: Number,
         required: true
     },
-    isAdmin: {
+    isSuperAdmin: {
         default: false
     }
 })
