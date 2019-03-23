@@ -1,0 +1,54 @@
+<div class="table-responsive">
+ <style>
+  table {
+   counter-reset: rowNumber-1;
+  }
+
+  table tr {
+   counter-increment: rowNumber;
+  }
+
+  table tr td:first-child::before {
+   content: counter(rowNumber);
+   min-width: 1em;
+   margin-right: 0.5em;
+  }
+ </style>
+ <table class="table">
+  <thead>
+   <tr>
+    <th scope="col">S.No.</th>
+    <th scope="col">Application ID</th>
+    <th scope="col">Types</th>
+    <th>Actions</th>
+    <th></th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td></td>
+    {{!-- ya nira td vitra {{type}} garera rakhda ramro huntheo rather than 'citizenship' --}}
+    <td>32424324</td>
+    <td>citizenship</td>
+
+     <td><a href="#"><button class="btn btn-info">View</button></a></td>
+
+    <td>
+     <form action="/admin/requests/call/{{_id}}?_method=PUT" method="POST">
+      <button class="btn btn-primary">Call for verification</button>
+     </form>
+    </td>
+    <td>
+     <form action="/admin/requests/approve/{{_id}}?_method=PUT" method="POST">
+      <button class="btn btn-warning">Approve</button>
+     </form>
+    </td>
+    <td>
+     <form action="/users/requests/{{_id}}?_method=DELETE" method="POST">
+      <button class="btn btn-danger">Discard</button>
+     </form>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
