@@ -11,7 +11,7 @@ Router.all('/*',(req,res,next) => {
 
 Router.get('/login',adminController.getLoginForm)
     .post("/login",adminController.loginAdmin)
-Router.get('/dashboard',adminController.dashboard)
+Router.get('/dashboard',checkAuthAdmin,adminController.dashboard)
 
 // Router.get('/logout', adminController.logoutUser)
 
