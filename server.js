@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 //Require passport
-require('./config/passport')(passport);
+// require('./config/passport')(passport);
 
 //Handlebars middleware
 const { select} = require('./helper/handlebars-helper');
@@ -41,6 +41,7 @@ app.use(session({
 //import the routes
 const index = require('./routes/index')
 const users = require('./routes/users')
+const admins = require('./routes/admins')
 const apply = require('./routes/apply')
 const requests = require('./routes/request')
 const check = require('./routes/check')
@@ -48,6 +49,8 @@ const check = require('./routes/check')
 //Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+require('./config/passport').isAdmin(passport);
+require('./config/passport').isUser(passport);
 
 app.use(function (req, res, next) {
     res.locals.user = req.user || null
@@ -59,6 +62,7 @@ app.use('/', index)
 app.use('/users/apply', apply)
 app.use('/users/requests', requests)
 app.use('/users', users)
+app.use('/admin', admins)
 app.use('/check', check)
 
 app.listen(PORT, ()=>{

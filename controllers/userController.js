@@ -11,7 +11,7 @@ exports.getRegisterForm = (req, res) => {
 };
 
 exports.loginUser = (req, res, next) => {
-  passport.authenticate("local", {
+  passport.authenticate("user", {
     failureRedirect: "/users/login",
     successRedirect: "/"
   })(req, res, next);
