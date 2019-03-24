@@ -25,6 +25,7 @@
    </tr>
   </thead>
   <tbody>
+      {{#each citizenships}}
    <tr>
     <td></td>
     {{!-- ya nira td vitra {{type}} garera rakhda ramro huntheo rather than 'citizenship' --}}
@@ -39,8 +40,12 @@
      </form>
     </td>
     <td>
-     <form action="/admin/requests/approve/{{_id}}?_method=PUT" method="POST">
-      <button class="btn btn-warning">Approve</button>
+     <form action="/admin/requests/approve/{{_id}}?_method=PATCH" method="POST">
+     {{#if isVerified}}
+      <button class="btn btn-warning">Unverify</button>
+      {{else }}
+    <button class="btn btn-warning">Verify</button>
+    {{/if}}
      </form>
     </td>
     <td>
@@ -49,6 +54,7 @@
      </form>
     </td>
    </tr>
+   {{/each}}
   </tbody>
  </table>
 </div>
