@@ -27,6 +27,20 @@ exports.dashboard = (req, res) => {
 exports.verifyRequset = (req,res) => {
   Citizenship.findById(req.params.id).then(citizenship => {
       citizenship.isVerified = !citizenship.isVerified;
+
+      if(citizenship.isVerified){
+        citizenship.isCalled =false;
+      }
+      citizenship.save().then(verifiedCitizen => res.redirect("/admin/dashboard") );
+    
+    
+  }).catch(e => console.log(e))
+}
+exports.callRequester = (req,res) => {
+  Citizenship.findById(req.params.id).then(citizenship => {
+    console.log("citizenship");
+    
+      citizenship.isCalled = !citizenship.isCalled;
       citizenship.save().then(verifiedCitizen => res.redirect("/admin/dashboard") );
   }).catch(e => console.log(e))
 }

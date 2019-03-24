@@ -1,6 +1,7 @@
 const passport = require("passport");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const Citizenship = require('../models/Citizenship')
 
 exports.getLoginForm = (req, res) => {
   res.render("users/login");
@@ -82,6 +83,12 @@ exports.registerUser = (req, res) => {
     });
   }
 };
+
+exports.getNotifications = async(req, res) =>{
+  const citizenship = await Citizenship.findOne({user: req.user});
+  const isCalled = citizenship.isCalled;
+  res.render("users/notifications",{isCalled})
+}
 
 exports.logoutUser = (req, res) => {
   req.logout();

@@ -35,14 +35,18 @@
      <td><a href="#"><button class="btn btn-info">View</button></a></td>
 
     <td>
-     <form action="/admin/requests/call/{{_id}}?_method=PUT" method="POST">
-      <button class="btn btn-primary">Call for verification</button>
+     <form action="/admin/requests/call/{{_id}}?_method=PATCH" method="POST">
+     {{#if isCalled}}
+      <button class="btn btn-success">Called</button>
+      {{else}}
+      <button class="btn btn-warning">Call for Verification</button>
+      {{/if}}
      </form>
     </td>
     <td>
      <form action="/admin/requests/approve/{{_id}}?_method=PATCH" method="POST">
      {{#if isVerified}}
-      <button class="btn btn-warning">Unverify</button>
+      <button class="btn btn-success">Unverify</button>
       {{else }}
     <button class="btn btn-warning">Verify</button>
     {{/if}}

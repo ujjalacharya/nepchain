@@ -12,6 +12,9 @@ Router.route('/register')
       .get(checkGuest, userController.getRegisterForm)
       .post(userController.registerUser)
 
+Router.route('/notifications')
+      .get(checkAuth, userController.getNotifications)
+
 Router.get('/logout', userController.logoutUser)
 
 Router.get('/verify', checkAuth, (req, res) => {
