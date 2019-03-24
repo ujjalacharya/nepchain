@@ -24,15 +24,19 @@ exports.dashboard = (req, res) => {
   }).catch(e => console.log(e))
   
 };
-exports.verifiedRequset = (req,res) => {
+exports.verifyRequset = (req,res) => {
   Citizenship.findById(req.params.id).then(citizenship => {
-    console.log("citizenship");
-    
       citizenship.isVerified = !citizenship.isVerified;
       citizenship.save().then(verifiedCitizen => res.redirect("/admin/dashboard") );
-    
-    
   }).catch(e => console.log(e))
+}
+exports.deleteRequest = (req,res) => {
+  Citizenship.findByIdAndDelete(req.params.id)
+  .then(deletedCitizen => {
+    console.log("object")
+    return res.redirect("/admin/dashboard")
+  })
+  .catch(e => console.log(e))
 }
 exports.logoutAdmin = (req, res) => {
   req.logout();

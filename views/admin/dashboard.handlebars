@@ -49,8 +49,8 @@
      </form>
     </td>
     <td>
-     <form action="/users/requests/{{_id}}?_method=DELETE" method="POST">
-      <button class="btn btn-danger">Discard</button>
+    <form action="/admin/requests/{{_id}}?_method=DELETE" method="POST">
+      <button class="btn btn-danger" type="submit"  onclick="return confirmation()">Discard</button>
      </form>
     </td>
    </tr>
@@ -58,3 +58,9 @@
   </tbody>
  </table>
 </div>
+
+<script>
+    function confirmation(){
+        return confirm("Are you sure");
+    }
+</script>
