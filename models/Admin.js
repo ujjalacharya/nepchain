@@ -20,6 +20,10 @@ const UserSchema = new Schema({
     },
     isSuperAdmin: {
         default: false
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 })
 

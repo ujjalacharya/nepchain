@@ -12,7 +12,8 @@ Router.all('/*',(req,res,next) => {
 Router.get('/login',adminController.getLoginForm)
     .post("/login",adminController.loginAdmin)
 Router.get('/dashboard',checkAuthAdmin,adminController.dashboard)
+Router.patch('/requests/approve/:id', checkAuthAdmin, adminController.verifiedRequset)
 
-// Router.get('/logout', adminController.logoutUser)
+Router.get('/logout', adminController.logoutAdmin)
 
 module.exports = Router;

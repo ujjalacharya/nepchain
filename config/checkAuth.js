@@ -1,10 +1,12 @@
+
 module.exports = {
     checkAuth: function(req, res, next){
-        if(req.isAuthenticated()){
+        if (req.isAuthenticated()) {
             next();
-        }else{
+        }  else {
             res.redirect('/users/login')
         }
+        
     },
     checkAuthAdmin: function (req, res, next) {
         if (req.isAuthenticated()) {
@@ -14,10 +16,11 @@ module.exports = {
         }
     },
     checkGuest: function(req, res, next){
-        if(req.isAuthenticated()){
+        if (req.isAuthenticated()) {
             res.redirect('/')
-        }else{
+        } else {
             next();
         }
+        
     }
 }

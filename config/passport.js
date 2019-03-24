@@ -23,27 +23,45 @@ exports.isUser = function(passport){
         }
     ));
     passport.serializeUser(function (user, done) {
-        done(null, user.id);
+        if (!user.isAdmin) {
+            console.log("insideserializeuser");
+           return done(null, user.id);
+        }
+        // i.e. user is admin
+        console.log("insideserializeuseradmin");
+        done(null,user.id)
     });
 
     passport.deserializeUser(function (id, done) {
         User.findById(id, function (err, user) {
-            done(err, user);
+            if (user === null) {
+                Admin.findById(id, function (err, admin) {
+                    console.log('insideadmin');
+                    done(err, admin)
+                })
+            } else {
+                // i.e. it is just a user not the fuckin admin!!
+                console.log('hello');
+                done(err, user);
+            }
+            
+            
         });
+        
     });
 }
     exports.isAdmin = function (passport) {
         passport.use('admin', new LocalStrategy({ usernameField: 'email' },
             (email, password, done) => {
                 Admin.findOne({ email: email })
-                    .then(user => {
-                        if (!user) {
+                    .then(admin => {
+                        if (!admin) {
                             return done(null, false, { message: 'No admin found' })
                         }
-                        bcrypt.compare(password, user.password, (err, isMatch) => {
+                        bcrypt.compare(password, admin.password, (err, isMatch) => {
                             if (err) throw err;
                             if (isMatch) {
-                                return done(null, user)
+                                return done(null, admin)
                             } else {
                                 return done(null, false, { message: 'Incorrect password' })
                             }
@@ -51,16 +69,8 @@ exports.isUser = function(passport){
                     })
             }
         ));
-        passport.serializeUser(function (user, done) {
-            done(null, user.id);
-        });
-
-        passport.deserializeUser(function (id, done) {
-            Admin.findById(id, function (err, user) {
-                done(err, user);
-            });
-        });
     }
+
 
     
     

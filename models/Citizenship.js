@@ -59,6 +59,15 @@ phone: {
   type: String,
   required: true
  },
+
+    isApproved: {
+        type: Boolean,
+        default: false
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
  municipality:{
   type: String,
   required: true
