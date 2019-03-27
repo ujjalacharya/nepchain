@@ -25,7 +25,7 @@
    </tr>
   </thead>
   <tbody>
-      {{#unless isSuperAdmin}}
+      {{#if isAdmin}}
       {{#each citizenships}}
    <tr>
     <td></td>
@@ -60,7 +60,7 @@
     </td>
    </tr>
    {{/each}}
-   {{/unless}}
+   {{/if}}
 
 
    {{!-- for superAdmin --}}

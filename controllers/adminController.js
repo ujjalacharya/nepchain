@@ -20,7 +20,10 @@ exports.dashboard = (req, res) => {
   Citizenship.find({ward : adminWard}).then(citizenships => {
     if (citizenships) {
       const isSuperAdmin = req.user.isSuperAdmin
-      res.render("admin/dashboard",{citizenships,isSuperAdmin});
+      const isAdmin = req.user.isAdmin
+      console.log(isSuperAdmin);
+      console.log(isAdmin);
+      res.render("admin/dashboard",{citizenships,isSuperAdmin,isAdmin});
     }
   }).catch(e => console.log(e))
   
