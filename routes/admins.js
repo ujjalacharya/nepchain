@@ -17,4 +17,6 @@ Router.patch('/requests/approve/:id', checkAuthAdmin, adminController.verifyRequ
 Router.delete('/requests/:id',checkAuthAdmin,adminController.deleteRequest)
 Router.get('/logout', adminController.logoutAdmin)
 
+Router.post('/register', adminController.registerAdmin)
+
 module.exports = Router;

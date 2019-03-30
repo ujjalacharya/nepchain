@@ -14,6 +14,25 @@ exports.loginAdmin = (req, res, next) => {
   })(req, res, next);
 };
 
+exports.registerAdmin = (req, res) => {
+  const {email, password, assignedWard, name} = req.body;
+  const newadmin = {
+      email, password, assignedWard, name
+  }
+  bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newadmin.password, salt, (err, hash) => {
+        if (err) throw err;
+        newadmin.password = hash;
+        new Admin(newadmin)
+          .save()
+          .then(user => {
+            res.redirect("/admin/login");
+          })
+          .catch(err => res.json(err));
+      });
+    });
+  }
+
 exports.dashboard = (req, res) => {
   // though it shld b req.admin bt this dsnt work i dont no know y!!
   const adminWard = req.user.assignedWard;

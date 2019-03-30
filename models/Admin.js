@@ -19,11 +19,12 @@ const UserSchema = new Schema({
         required: true
     },
     isSuperAdmin: {
+        type: Boolean,
         default: false
     },
     isAdmin: {
         type: Boolean,
-        default: false
+        default: true
     }
 })
 
