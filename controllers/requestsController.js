@@ -50,6 +50,9 @@ exports.updateRequest = (req,res) => {
                 console.log(err);
             })
         }
+        if(citizen.isVerified){
+            citizen.isVerified = false;
+        }
         citizen.save().then(updatedcitizen => {
             res.redirect('/users/requests')
             })
