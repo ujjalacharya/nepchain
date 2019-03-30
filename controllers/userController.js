@@ -29,9 +29,6 @@ exports.registerUser = (req, res) => {
   if (!req.body.phone) {
     errors.push({ text: "Empty phone number" });
   }
-  if (!req.body.address) {
-    errors.push({ text: "Empty address" });
-  }
   if (req.body.password.length < 4) {
     errors.push({ text: "Password too short" });
   }
@@ -44,13 +41,10 @@ exports.registerUser = (req, res) => {
     res.render("users/register", {
       errors: errors,
       name: req.body.name,
-      citizenshipno: req.body.citizenshipno,
       password: req.body.password,
       password2: req.body.password2,
       email: req.body.email,
       phone: req.body.phone,
-      email: req.body.email,
-      address: req.body.address
     });
   } else {
     User.findOne({ email: req.body.email }).then(user => {
@@ -62,10 +56,6 @@ exports.registerUser = (req, res) => {
           password: req.body.password,
           email: req.body.email,
           phone: req.body.phone,
-          address: req.body.address,
-          dob: req.body.dob,
-          gender: req.body.gender,
-          citizenshipno: req.body.citizenshipno
         };
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newuser.password, salt, (err, hash) => {
