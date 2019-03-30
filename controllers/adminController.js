@@ -59,6 +59,13 @@ exports.verifyRequset = (req,res) => {
     
   }).catch(e => console.log(e))
 }
+exports.approveRequset = (req,res) => {
+  Citizenship.findById(req.params.id).then(citizenship => {
+      citizenship.isApproved = !citizenship.isApproved;
+      citizenship.save().then(approvedCitizen => res.redirect("/admin/dashboard") );
+    
+  }).catch(e => console.log(e))
+}
 exports.callRequester = (req,res) => {
   Citizenship.findById(req.params.id).then(citizenship => {
     console.log("citizenship");
@@ -75,6 +82,7 @@ exports.deleteRequest = (req,res) => {
   })
   .catch(e => console.log(e))
 }
+
 exports.logoutAdmin = (req, res) => {
   req.logout();
   res.redirect("/admin/login");
