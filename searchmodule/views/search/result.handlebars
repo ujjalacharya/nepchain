@@ -1,0 +1,78 @@
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each citizen}}
+        <tr>
+            <th scope="row">1</th>
+            <td>First Name </td>
+            <td>{{firstname}}</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Middle Name</td>
+            <td>{{middlename}}</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Last Name</td>
+            <td>{{lastname}}</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Citizen ID</td>
+            <td>{{citizenshipno}}</td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>Street</td>
+            <td>{{street}}</td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td>Ward</td>
+            <td>{{ward}}</td>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td>Municipality</td>
+            <td>{{municipality}}</td>
+        </tr>
+        <tr>
+            <th scope="row">8</th>
+            <td>District</td>
+            <td>{{district}}</td>
+        </tr>
+        <tr>
+            <th scope="row">9</th>
+            <td>Date Of Birth</td>
+            <td>{{dob}}</td>
+        </tr>
+        <tr>
+            <th scope="row">10</th>
+            <td>Gender</td>
+            <td>{{gender}}</td>
+        </tr>
+        <tr>
+            <th scope="row">11</th>
+            <td>Grandfather's Name</td>
+            <td>{{grandfathersname}}</td>
+        </tr>
+        <tr>
+            <th scope="row">12</th>
+            <td>Father's Name</td>
+            <td>{{fathersname}}</td>
+        </tr>
+        <tr>
+            <th scope="row">13</th>
+            <td>Mother's Name</td>
+            <td>{{mothersname}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
