@@ -96,6 +96,15 @@ exports.viewRequest = (req, res) => {
   })
 }
 
+exports.assignWard = (req, res) => {
+  Citizenship.findById(req.params.id).then(citizenship => {
+    citizenship.citizenshipno = req.body.citizenshipno;
+    citizenship.save().then(saved =>{
+      res.redirect("/admin/dashboard") 
+    })
+  })
+}
+
 exports.logoutAdmin = (req, res) => {
   req.logout();
   res.redirect("/admin/login");

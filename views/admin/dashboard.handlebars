@@ -47,6 +47,16 @@
                     </form>
                 </td>
                 <td>
+                    <form action="/admin/requests/{{_id}}?_method=PATCH" method="POST">
+                        <div class="form-group">
+                            <input type="text" placeholder="Citizenship ID" name="citizenshipno" class="form-control" style="float: left;width: 50%;margin-right: 9px;" value={{citizenshipno}}>
+                            <div>
+                                <button class="btn btn-primary">Assign</button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+                <td>
                     <form action="/admin/requests/{{_id}}?_method=DELETE" method="POST">
                         <button class="btn btn-danger" type="submit" onclick="return confirmation()">Discard</button>
                     </form>

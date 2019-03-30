@@ -39,9 +39,6 @@ exports.postCitizenship = (req, res) =>{
     if (!req.body.district) {
         errors.push({ text: "Empty district" });
     }
-    if (!req.body.citizenshipno) {
-        errors.push({ text: "Empty citizenshipno" });
-    }
     if (!req.body.phone) {
         errors.push({ text: "Empty phone number" });
     }

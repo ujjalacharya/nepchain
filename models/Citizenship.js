@@ -9,7 +9,8 @@ const CitizenshipSchema = new Schema({
   },
   citizenshipno: {
     type: String,
-    required: true
+    required: true,
+    default: 'not assigned'
   },
   firstname: {
     type: String,
