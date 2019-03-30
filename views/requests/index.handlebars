@@ -19,7 +19,7 @@ table tr td:first-child::before {
             <tr>
                 <th scope="col">S.No.</th>
                 <th scope="col">Types</th>
-                <th>Approve</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -28,10 +28,14 @@ table tr td:first-child::before {
                 <td></td>
                 {{!-- ya nira td vitra {{type}} garera rakhda ramro huntheo rather than 'citizenship' --}}
                 <td>citizenship</td>
-                {{#if approved}}
-                <td><span class="btn btn-success">✔</span></td>
+                {{#if isApproved}}
+                <td><span class="btn btn-success">Approved</span></td>
+                {{else if isVerified}}
+                <td><span class="btn btn-info">Verified</span></td>
+                {{else if isCalled}}
+                <td><span class="btn btn-warning">Called</span></td>
                 {{else}}
-                <td><span class="btn btn-info">❌</span></td>
+                <td><span class="btn btn-danger">Not verified</span></td>
                 {{/if}}
                 <td><a href="/users/requests/edit/{{_id}}"><button class="btn btn-primary">Edit</button></a></td>
                 <td>
