@@ -1,5 +1,16 @@
 {{#if isCalled}}
 <div class="alert alert-success">
-  <p>You have been called for the futher enquiry</p>
+  <p>You have been called for the futher enquiry. Please bring up the following documents with you in the ward office:</p>
+ <ol>
+   <li>Copy of your Fathers/Mothers Citizenship.</li>
+   <li>Birth Certificate.</li>
+   <li>Certificate of class 8 or SLC.</li>
+ </ol>
 </div>
+{{else if message}}
+  <div class="alert alert-success">
+    <h4>{{message}}</h4>
+  </div>
+{{else }}
+  <h3>No notification yet</h3>
 {{/if}}

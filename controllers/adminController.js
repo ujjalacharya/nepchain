@@ -62,6 +62,9 @@ exports.verifyRequset = (req,res) => {
 exports.approveRequset = (req,res) => {
   Citizenship.findById(req.params.id).then(citizenship => {
       citizenship.isApproved = !citizenship.isApproved;
+      if(citizenship.isApproved){
+        citizenship.isCalled =true;
+      }
       citizenship.save().then(approvedCitizen => res.redirect("/admin/dashboard") );
     
   }).catch(e => console.log(e))

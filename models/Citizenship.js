@@ -82,7 +82,7 @@ const CitizenshipSchema = new Schema({
   },
   cardissuer: {
     type: String,
-    required: true
+    required: false
   },
   image: {
     type: String,

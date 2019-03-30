@@ -85,9 +85,20 @@ exports.registerUser = (req, res) => {
 };
 
 exports.getNotifications = async(req, res) =>{
+  let message = "";
   const citizenship = await Citizenship.findOne({user: req.user});
-  const isCalled = citizenship.isCalled;
-  res.render("users/notifications",{isCalled})
+  if(citizenship){
+    let {isCalled, isApproved} = citizenship;
+    if(isApproved){
+      isCalled = false;
+      message = "You Citizenship application has been approved. Please come to the the DAO office and collect your citizenship card."
+    }
+
+    res.render("users/notifications",{isCalled, message})
+  }else{
+    const isCalled = false;
+    res.render("users/notifications",{isCalled})
+  }
 }
 
 exports.logoutUser = (req, res) => {

@@ -60,9 +60,6 @@ exports.postCitizenship = (req, res) =>{
     if (!req.body.mothersname) {
         errors.push({ text: "Empty mother's name" });
     }
-    if (!req.body.cardissuer) {
-        errors.push({ text: "Empty card issuer" });
-    }
     if (!req.body.image) {
         errors.push({ text: "Empty image" });
     }
