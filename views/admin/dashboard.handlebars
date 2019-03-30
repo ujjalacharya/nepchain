@@ -36,17 +36,7 @@
                 <td>32424324</td>
                 <td>citizenship</td>
 
-                <td><a href="#"><button class="btn btn-info">View</button></a></td>
-
-                {{!-- <td>
-        <form action="/admin/requests/call/{{_id}}?_method=PATCH" method="POST">
-            {{#if isCalled}}
-            <button class="btn btn-success">Called</button>
-            {{else}}
-            <button class="btn btn-warning">Call for Verification</button>
-            {{/if}}
-        </form>
-    </td> --}}
+                <td><a href="/admin/requests/view/{{_id}}"><button class="btn btn-info">View</button></a></td>
                 <td>
                     <form action="/admin/requests/approve/{{_id}}?_method=PATCH" method="POST">
                         {{#if isApproved}}

@@ -87,6 +87,14 @@ const CitizenshipSchema = new Schema({
   image: {
     type: String,
     required: false
+  },
+  VerifiedDate:{
+    type: Date,
+    required: false
+  },
+  ApprovedDate:{
+    type: Date,
+    required: false
   }
 });
 

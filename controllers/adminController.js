@@ -53,6 +53,7 @@ exports.verifyRequset = (req,res) => {
 
       if(citizenship.isVerified){
         citizenship.isCalled =false;
+        citizenship.VerfiedDate = new Date();
       }
       citizenship.save().then(verifiedCitizen => res.redirect("/admin/dashboard") );
     
@@ -64,6 +65,8 @@ exports.approveRequset = (req,res) => {
       citizenship.isApproved = !citizenship.isApproved;
       if(citizenship.isApproved){
         citizenship.isCalled =true;
+        citizenship.ApprovedDate = new Date();        
+
       }
       citizenship.save().then(approvedCitizen => res.redirect("/admin/dashboard") );
     
@@ -84,6 +87,13 @@ exports.deleteRequest = (req,res) => {
     return res.redirect("/admin/dashboard")
   })
   .catch(e => console.log(e))
+}
+
+exports.viewRequest = (req, res) => {
+  Citizenship.findById(req.params.id).then(citizenship => {
+    console.log(citizenship)
+    res.render('admin/view', citizenship);
+  })
 }
 
 exports.logoutAdmin = (req, res) => {
